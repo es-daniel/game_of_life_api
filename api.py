@@ -2,7 +2,7 @@ import flask
 from flask_cors import CORS
 from utils import Utils
 import json
-from flask import jsonify
+from flask import request, jsonify
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -13,8 +13,14 @@ utils = Utils()
 
 @app.route('/start', methods=['GET'])
 def start():
-    grid = utils.build_new_grid()
-    utils.seed(grid)
+    pattern = request.args.get('pattern')
+    grid = []
+    print(pattern)
+    if pattern == 'rand':
+        grid = utils.build_new_grid(20, 25)  # 20 rows with 25 columns
+        utils.seed(grid)
+    elif pattern == 'gosper_glider_gun':
+        grid = utils.gosper_glider_gun()
     save_grid(grid)
     return jsonify(grid)
 

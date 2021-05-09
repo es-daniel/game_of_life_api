@@ -10,6 +10,9 @@ CORS(app)
 
 utils = Utils()
 
+@app.route('/', methods=['GET'])
+def home():
+    return "<b>Game of life API</b>"
 
 @app.route('/start', methods=['GET'])
 def start():

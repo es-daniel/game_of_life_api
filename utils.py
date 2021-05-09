@@ -1,4 +1,5 @@
 from random import randint
+import numpy as np
 import json
 
 ALIVE = 1
@@ -30,6 +31,10 @@ class Utils:
 
     def gosper_glider_gun(self):
         grid = open('gosper_glider_gun.json')
+        return json.load(grid)
+
+    def pulsar(self):
+        grid = open('pulsar.json')
         return json.load(grid)
 
     # This method update teh grid

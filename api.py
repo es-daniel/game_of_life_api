@@ -21,6 +21,8 @@ def start():
         utils.seed(grid)
     elif pattern == 'gosper_glider_gun':
         grid = utils.gosper_glider_gun()
+    elif pattern == 'pulsar':
+        grid = utils.pulsar()
     save_grid(grid)
     return jsonify(grid)
 

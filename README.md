@@ -30,6 +30,11 @@ To get and initial pattern use this end-point:
 To update the current grid use this end-point:
 * http://127.0.0.1:8000/update
 
+Live running version: 
+* https://gameoflife-api.herokuapp.com/ : HOME
+* https://gameoflife-api.herokuapp.com/start?pattern=rand : START GAME
+* https://gameoflife-api.herokuapp.com/update : UPDATE GAME
+
 ## License
 
 MIT

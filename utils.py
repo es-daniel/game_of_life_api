@@ -1,5 +1,4 @@
 from random import randint
-import numpy as np
 import json
 
 ALIVE = 1
@@ -7,7 +6,7 @@ DEAD = 0
 
 
 class Utils:
-
+    # This is the constructor method
     def __init__(self):
         self.temp_grid = []
         self.grid = []
@@ -25,14 +24,15 @@ class Utils:
         row[randint(5, 15)] = ALIVE
 
     # This method creates a new grid
-
     def build_new_grid(self, rows, columns):
         return [[DEAD] * columns for _ in range(rows)]
 
+    # This method creates and return the Gosper Glider Gun pattern
     def gosper_glider_gun(self):
         grid = open('gosper_glider_gun.json')
         return json.load(grid)
 
+    # This method creates and return the Pulsar pattern
     def pulsar(self):
         grid = open('pulsar.json')
         return json.load(grid)

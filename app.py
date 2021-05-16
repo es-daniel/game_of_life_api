@@ -9,10 +9,14 @@ CORS(app)
 
 utils = Utils()
 
+
+# This is the home end point
 @app.route('/', methods=['GET'])
 def home():
     return "<b>Game of life API</b>"
 
+
+# This is the end pint to start the game
 @app.route('/start', methods=['GET'])
 def start():
     pattern = request.args.get('pattern')
@@ -29,6 +33,7 @@ def start():
     return jsonify(grid)
 
 
+# This is the end point to update the game
 @app.route('/update', methods=['GET'])
 def update():
     current_grid = read_grid()
@@ -37,15 +42,18 @@ def update():
     return jsonify(new_grid)
 
 
+# This save the current grid in the server
 def save_grid(grid):
     db = open('history.json', 'w')
     db.write(json.dumps(grid))
     db.close()
 
+
+# This method load the current grid saved in the server
 def read_grid():
     grid = open('history.json')
     return json.load(grid)
 
-
+# This statement runs the app
 if __name__ == '__main__':
     app.run()
